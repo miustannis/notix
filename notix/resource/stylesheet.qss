@@ -1,0 +1,46 @@
+/* 全局背景 */
+QWidget {
+    background-color: #ffffff;
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+    color: #333333;
+}
+
+/* 输入框 */
+QLineEdit {
+    background-color: #f5f5f5;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #409eff;
+    background-color: #ffffff;
+}
+
+/* 按钮 */
+QPushButton {
+    background-color: #409eff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+}
+
+QPushButton:hover {
+    background-color: #66b1ff;
+}
+
+QPushButton:pressed {
+    background-color: #337ecc;
+}
+
+/* 去掉红色焦点框 */
+QPushButton:focus {
+    outline: none;
+}
+
+QLineEdit:focus {
+    outline: none;
+}

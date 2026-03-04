@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "logindialog.h"
+#include "registerdialog.h"
 /***************************************************************
  * Copyright (c) 2026 miaoye
  *
@@ -32,9 +33,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+public slots:
+    void SlotSwitchRegister();
 private:
     Ui::MainWindow *ui;
     LoginDialog* _login;
+    RegisterDialog* _register;
 };
 #endif // MAINWINDOW_H

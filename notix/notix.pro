@@ -13,21 +13,24 @@ DESTDIR = $$PWD/bin
 SOURCES += \
     Sources/main.cpp \
     Sources/mainwindow.cpp \
-    Sources/logindialog.cpp
+    Sources/logindialog.cpp \
+    Sources/registerdialog.cpp
 
 # HEADERS
 HEADERS += \
     Headers/mainwindow.h \
-    Headers/logindialog.h
+    Headers/logindialog.h \
+    Headers/registerdialog.h
 
 # UI 文件
 FORMS += \
     Forms/mainwindow.ui \
-    Forms/logindialog.ui
+    Forms/logindialog.ui \
+    Forms/registerdialog.ui
 
 # 资源文件
 RESOURCES += \
-    resource/loginpic.qrc
+    resource/loginpic.qrc \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
