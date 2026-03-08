@@ -11,6 +11,7 @@ DESTDIR = $$PWD/bin
 
 # SOURCES
 SOURCES += \
+    Sources/global.cpp \
     Sources/main.cpp \
     Sources/mainwindow.cpp \
     Sources/logindialog.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 
 # HEADERS
 HEADERS += \
+    Headers/global.h \
     Headers/mainwindow.h \
     Headers/logindialog.h \
     Headers/registerdialog.h

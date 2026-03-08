@@ -1,9 +1,9 @@
 /* 全局背景 */
 QWidget {
-    background-color: #ffffff;
+    background-color: #F0F8FF;  /* 爱丽丝蓝，非常浅的蓝色背景 */
     font-family: "Microsoft YaHei";
     font-size: 14px;
-    color: #333333;
+    color: #2C3E50;              /* 深蓝灰色文字，保证可读性 */
 }
 
 /* 输入框 */
@@ -43,4 +43,13 @@ QPushButton:focus {
 
 QLineEdit:focus {
     outline: none;
+}
+
+/* errortip状态切换 */
+#errortip[state='normal']{
+    color : green;
+}
+
+#errortip[state='err']{
+    color : red;
 }

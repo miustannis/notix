@@ -8,13 +8,18 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    _login = new LoginDialog();
+    _login = new LoginDialog(this);
     setCentralWidget(_login);
-    _login->show();
+    //_login->show();
 
     // 创建和注册消息连接
     connect(_login, &LoginDialog::SwitchRegister, this, &MainWindow::SlotSwitchRegister);
-    _register = new RegisterDialog();
+    _register = new RegisterDialog(this);
+
+    _login->setWindowFlags(Qt::CustomizeWindowHint | Qt::FramelessWindowHint);
+    _register->setWindowFlags(Qt::CustomizeWindowHint | Qt::FramelessWindowHint);
+
+    _register->hide();
 }
 
 MainWindow::~MainWindow()
