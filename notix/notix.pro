@@ -22,7 +22,8 @@ HEADERS += \
     Headers/global.h \
     Headers/mainwindow.h \
     Headers/logindialog.h \
-    Headers/registerdialog.h
+    Headers/registerdialog.h \
+    Headers/singleton.h
 
 # UI 文件
 FORMS += \
