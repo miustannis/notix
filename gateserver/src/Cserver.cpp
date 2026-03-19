@@ -11,6 +11,7 @@ void CServer::Start(){
   _acceptor.async_accept(_socket, [self](beast::error_code ec){
     try{
       //  出错的情况下放弃这个连接，继续监听其他连接
+      //  异步accept是一次性触发，每次只能接受一个客户端，触发之后要重新注册
       if (ec) {
         self->Start();
         return;
