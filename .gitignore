@@ -23,3 +23,7 @@ target/
 *.pyc
 __pycache__/
 
+
+# demo
+/CppAIService
+

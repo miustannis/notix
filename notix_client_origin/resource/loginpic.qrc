@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/new/prefix1">
-        <file>Notixhead.png</file>
-        <file>stylesheet.qss</file>
-    </qresource>
-</RCC>
