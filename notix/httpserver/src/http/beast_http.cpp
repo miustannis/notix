@@ -4,7 +4,7 @@
 
   http_connection::http_connection(tcp::socket socket) : _socket(std::move(socket))
   {
-    _request_parser.body_limit(kMaxBodySize);
+    _request_parser.body_limit(MaxBodySize);
   }
 
   void http_connection::start()
@@ -16,7 +16,7 @@
   void http_connection::read_request()
   {
     auto self = shared_from_this();
-    _request_parser.body_limit(kMaxBodySize);
+    _request_parser.body_limit(MaxBodySize);
     http::async_read(_socket, _buffer, _request_parser,
         [self](beast::error_code ec, std::size_t bytes_transferred)
         {

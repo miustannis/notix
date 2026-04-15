@@ -8,7 +8,7 @@ beast的http类
 class http_connection : public std::enable_shared_from_this<http_connection>
 {
 public:
-  static constexpr std::size_t kMaxBodySize = 1024 * 1024; // 1MB
+  static constexpr std::size_t MaxBodySize = 1024 * 1024; // 1MB
 
   /**
    * @brief 构造一个 HTTP 连接对象。
