@@ -7,42 +7,66 @@
 
 namespace router
 {
-
+    /**
+     * @brief 动态路由参数集合
+     *
+     * key 为参数名，value 为路径中提取出的参数值
+     */
     using route_params = std::unordered_map<std::string, std::string>;
 
+	/**
+	 * @brief 静态路由枚举
+	 */
 	enum class static_route
 	{
-		none,
-		count,
-		time,
-		email
+		none,  ///< 未命中静态路由
+		count, ///< `/count`
+		time,  ///< `/time`
+		email  ///< `/email`
 	};
 
+    /**
+     * @brief 动态路由规则
+     */
     struct dynamic_route
 	{
-		http::verb method;
-		std::string pattern;
+		http::verb method;   ///< 规则对应 HTTP 方法
+		std::string pattern; ///< 动态路由模板，如 `/email/{source}`
 	};
 
-
+	/** @brief 静态路由：请求计数页面 */
 	inline constexpr std::string_view CountRoute = "/count";
+	/** @brief 静态路由：时间页面 */
 	inline constexpr std::string_view TimeRoute = "/time";
+	/** @brief 静态路由：邮箱提交 */
 	inline constexpr std::string_view EmailRoute = "/email";
+    /** @brief 动态路由：按时区查询时间 */
     inline constexpr std::string_view TimeByZoneRoute = "/time/{zone}";
+	/** @brief 动态路由：按来源提交邮箱 */
 	inline constexpr std::string_view EmailBySourceRoute = "/email/{source}";
 
 	/**
 	 * @brief 规范化请求 target，仅保留 path 并去除末尾多余 '/'.
+	 * @param raw_target 原始请求目标字符串
+	 * @return std::string 规范化后的路径字符串
 	 */
 	std::string normalize_target(std::string_view raw_target);
 
 	/**
-	 * @brief 按 method + target 匹配静态路由。
+	 * @brief 按 method + target 匹配静态路由
+	 * @param method 请求 HTTP 方法
+	 * @param target 请求目标路径
+	 * @return static_route 命中的静态路由类型，未命中时返回 `static_route::none`
 	 */
 	static_route match_static_route(http::verb method, std::string_view target);
 
 	/**
-	 * @brief 匹配动态路由模板，成功时写入路径参数。
+	 * @brief 匹配动态路由模板，成功时写入路径参数
+	 * @param route 动态路由规则
+	 * @param method 当前请求 HTTP 方法
+	 * @param target 当前请求路径
+	 * @param params 输出参数，命中时写入提取出的路径参数
+	 * @return true 命中动态路由；false 未命中
 	 */
 	bool match_dynamic_route(const dynamic_route &route,
 													 http::verb method,

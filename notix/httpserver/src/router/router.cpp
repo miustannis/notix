@@ -19,6 +19,7 @@ namespace router
     const auto normalized_target = normalize_target(target);
 
     const auto static_target = match_static_route(method, normalized_target);
+    // 和静态路由匹配上了
     if (static_target != static_route::none)
     {
       result.kind = match_kind::static_match;
@@ -26,6 +27,7 @@ namespace router
       return result;
     }
 
+    // 查找动态路由范式
     for (const auto &route : dynamic_routes_)
     {
       route_params params;
